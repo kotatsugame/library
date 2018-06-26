@@ -14,9 +14,10 @@ struct UF{
 	{
 		return find(a)==find(b);
 	}
-	void unite(int a,int b)
+	bool unite(int a,int b)
 	{
 		a=find(a),b=find(b);
+		if(a==b)return false;
 		if(rank[a]<rank[b])
 		{
 			parent[a]=b;
@@ -26,5 +27,6 @@ struct UF{
 			parent[b]=a;
 			if(rank[a]==rank[b])rank[a]++;
 		}
+		return true;
 	}
 };
