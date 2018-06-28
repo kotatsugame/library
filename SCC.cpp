@@ -1,3 +1,4 @@
+//Strongly Connected Components
 #include<vector>
 struct SCC{
 	int n;
@@ -10,7 +11,7 @@ struct SCC{
 		G[from].push_back(to);
 		RG[to].push_back(from);
 	}
-	void copy(vector<vector<int> >&H)
+	void copy(const vector<vector<int> >&H)
 	{
 		for(int i=0;i<H.size();i++)
 		{

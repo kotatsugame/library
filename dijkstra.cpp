@@ -2,7 +2,7 @@
 #include<queue>
 #include<limits>
 template<typename T>
-vector<T> dijkstra(int s,vector<vector<pair<int,T> > >&G,T INF=numeric_limits<T>::max())
+vector<T>dijkstra(int s,const vector<vector<pair<int,T> > >&G,T INF=numeric_limits<T>::max())
 {
 	int n=G.size();
 	vector<T>d(n,INF);
@@ -15,7 +15,7 @@ vector<T> dijkstra(int s,vector<vector<pair<int,T> > >&G,T INF=numeric_limits<T>
 		pair<T,int>p=P.top();P.pop();
 		int v=p.second;
 		if(d[v]<p.first)continue;
-		for(pair<int,T>&e:G[v])
+		for(const pair<int,T>&e:G[v])
 		{
 			int u=e.first;
 			T cost=d[v]+e.second;

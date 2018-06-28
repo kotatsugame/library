@@ -17,7 +17,7 @@ struct segtree{
 		while(n<n_)n<<=1;
 		dat.assign(2*n-1,defvalue);
 	}
-	void copy(vector<T>v)
+	void copy(const vector<T>&v)
 	{
 		for(int i=0;i<v.size();i++)dat[i+n-1]=v[i];
 		for(int i=n-2;i>=0;i--)dat[i]=calcfn(dat[i*2+1],dat[i*2+2]);

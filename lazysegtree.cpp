@@ -22,7 +22,7 @@ struct lazysegtree{
 		lazy.assign(2*n-1,lazydefvalue);
 		lazyflag.assign(2*n-1,false);
 	}
-	void copy(vector<T>v)
+	void copy(const vector<T>&v)
 	{
 		for(int i=0;i<v.size();i++)dat[i+n-1]=v[i];
 		for(int i=n-2;i>=0;i--)dat[i]=calcfn(dat[2*i+1],dat[2*i+2]);
