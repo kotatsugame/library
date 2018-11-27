@@ -27,7 +27,7 @@ struct weightedUF{
 	{
 		return find(a)==find(b);
 	}
-	bool unite(int a,int b,int w)
+	bool unite(int a,int b,int w)//a+w==b
 	{
 		w+=weight(a);w-=weight(b);
 		a=find(a);b=find(b);
