@@ -42,7 +42,7 @@ struct lazysegtree{
 			lazyflag[i]=false;
 		}
 	}
-	void update(int a,int b,T x,int k=0,int l=0,int r=-1)
+	void update(int a,int b,T x,int k=0,int l=0,int r=-1)//[a,b)
 	{
 		if(r<0)r=n;
 		eval(k,l,r);
@@ -60,7 +60,7 @@ struct lazysegtree{
 			dat[k]=calcfn(dat[2*k+1],dat[2*k+2]);
 		}
 	}
-	T query(int a,int b,int k=0,int l=0,int r=-1)
+	T query(int a,int b,int k=0,int l=0,int r=-1)//[a,b)
 	{
 		if(r<0)r=n;
 		eval(k,l,r);
