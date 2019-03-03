@@ -2,7 +2,7 @@
 struct UF{
 	int n;
 	vector<int>parent,rank;
-	UF(int n_=0):n(n_),parent(n_),rank(n_,0)
+	UF(int n_=0):n(n_),parent(n_),rank(n_,1)
 	{
 		for(int i=0;i<n_;i++)parent[i]=i;
 	}
@@ -21,11 +21,12 @@ struct UF{
 		if(rank[a]<rank[b])
 		{
 			parent[a]=b;
+			rank[b]+=rank[a];
 		}
 		else
 		{
 			parent[b]=a;
-			if(rank[a]==rank[b])rank[a]++;
+			rank[a]+=rank[b];
 		}
 		return true;
 	}
