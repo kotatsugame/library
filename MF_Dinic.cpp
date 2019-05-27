@@ -6,31 +6,31 @@
 #include<limits>
 template<typename T>
 struct MF{
-	vector<vector<pair<pair<int,int>,T> > >G;
+	struct edge{
+		int to,rev;
+		T cap;
+	};
+	vector<vector<edge> >G;
 	vector<int>level,iter;
 	MF(int n_=0):G(n_),level(n_),iter(n_){}
 	void add_edge(int from,int to,T cap)
 	{
-		G[from].push_back(make_pair(
-			make_pair(to,G[to].size()),cap
-		));
-		G[to].push_back(make_pair(
-			make_pair(from,G[from].size()-1),0
-		));
+		G[from].push_back({to,(int)G[to].size(),cap});
+		G[to].push_back({from,(int)G[from].size()-1,0});
 	}
 	T dfs(int u,int t,T f)
 	{
 		if(u==t)return f;
 		for(;iter[u]<G[u].size();iter[u]++)
 		{
-			pair<pair<int,int>,T>&e=G[u][iter[u]];
-			if(e.second>0&&level[u]<level[e.first.first])
+			edge&e=G[u][iter[u]];
+			if(e.cap>0&&level[u]<level[e.to])
 			{
-				T d=dfs(e.first.first,t,min(f,e.second));
+				T d=dfs(e.to,t,min(f,e.cap));
 				if(d>0)
 				{
-					e.second-=d;
-					G[e.first.first][e.first.second].second+=d;
+					e.cap-=d;
+					G[e.to][e.rev].cap+=d;
 					return d;
 				}
 			}
@@ -49,12 +49,12 @@ struct MF{
 			while(!P.empty())
 			{
 				int u=P.front();P.pop();
-				for(pair<pair<int,int>,T>&e:G[u])
+				for(edge&e:G[u])
 				{
-					if(e.second>0&&level[e.first.first]<0)
+					if(e.cap>0&&level[e.to]<0)
 					{
-						level[e.first.first]=level[u]+1;
-						P.push(e.first.first);
+						level[e.to]=level[u]+1;
+						P.push(e.to);
 					}
 				}
 			}
