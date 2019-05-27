@@ -30,14 +30,13 @@ struct bimatch{
 	int count()
 	{
 		int ans=0;
+		bool flag=true;
 		fill(match.begin(),match.end(),-1);
-		for(int v=0;v<n;v++)
+		while(flag)
 		{
-			if(match[v]<0)
-			{
-				fill(used.begin(),used.end(),false);
-				if(dfs(v))ans++;
-			}
+			flag=false;
+			fill(used.begin(),used.end(),false);
+			for(int v=0;v<n;v++)if(match[v]<0&&dfs(v))ans++,flag=true;
 		}
 		return ans;
 	}
