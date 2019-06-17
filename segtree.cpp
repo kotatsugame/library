@@ -1,4 +1,3 @@
-//一点更新区間取得
 #include<vector>
 #include<functional>
 #include<limits>
