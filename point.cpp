@@ -60,7 +60,7 @@ bool intersect(const Segment&,const Line&);
 bool intersect(const Circle&,const Point&);
 int intersect(const Circle&,const Line&);//count contacts
 int intersect(const Circle&,const Segment&);
-int intersect(const Circle&,const Circle&);
+int intersect(const Circle&,const Circle&);//count common tangents
 double distance(const Point&,const Point&);
 double distance(const Line&,const Point&);
 double distance(const Line&,const Line&);
