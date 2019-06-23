@@ -4,7 +4,7 @@ struct weightedUF{
 	int n;
 	vector<int>parent,rank;
 	vector<T>dweight;
-	weightedUF(int n_=0,T defvalue=0):n(n_),parent(n_),rank(n_,0),dweight(n_,defvalue)
+	weightedUF(int n_=0,T defvalue=0):n(n_),parent(n_),rank(n_,1),dweight(n_,defvalue)
 	{
 		for(int i=0;i<n;i++)parent[i]=i;
 	}
@@ -36,12 +36,13 @@ struct weightedUF{
 		{
 			parent[a]=b;
 			dweight[a]=-w;
+			rank[b]+=rank[a];
 		}
 		else
 		{
 			parent[b]=a;
 			dweight[b]=w;
-			if(rank[a]==rank[b])rank[a]++;
+			rank[a]+=rank[b];
 		}
 		return true;
 	}
