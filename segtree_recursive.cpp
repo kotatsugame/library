@@ -31,16 +31,17 @@ struct segtree{
 			dat[i]=calcfn(dat[2*i+1],dat[2*i+2]);
 		}
 	}
-	T query(int a,int b)//[a,b)
+	T query(int a,int b,int i=0,int l=0,int r=-1)//[a,b)
 	{
-		int L=(a<0?0:a>n?n:a)+n-1;
-		int R=(b<0?0:b>n?n:b)+n-1;
-		T ret=defvalue;
-		for(;L<R;L>>=1,R>>=1)
+		if(r<0)r=n;
+		if(r<=a||b<=l)return defvalue;
+		else if(a<=l&&r<=b)return dat[i];
+		else
 		{
-			if(!(L&1))ret=calcfn(ret,dat[L]);
-			if(!(R&1))ret=calcfn(ret,dat[--R]);
+			return calcfn(
+				query(a,b,i*2+1,l,(l+r)/2),
+				query(a,b,i*2+2,(l+r)/2,r)
+			);
 		}
-		return ret;
 	}
 };
