@@ -1,9 +1,10 @@
 #include<vector>
 #include<algorithm>
+template<typename T>
 struct rangefreq{
 	int n;
-	vector<vector<int> >dat;
-	rangefreq(const vector<int>&v={})
+	vector<vector<T> >dat;
+	rangefreq(const vector<T>&v={})
 	{
 		n=1;
 		while(n<v.size())n<<=1;
@@ -18,7 +19,7 @@ struct rangefreq{
 			);
 		}
 	}
-	int query(int a,int b,int x,int k=0,int l=0,int r=-1)//[a,b) count(*<x)
+	int query(int a,int b,T x,int k=0,int l=0,int r=-1)//[a,b) count(*<x)
 	{
 		if(r<0)r=n;
 		if(b<=l||r<=a)return 0;
