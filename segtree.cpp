@@ -35,12 +35,12 @@ struct segtree{
 	{
 		int L=(a<0?0:a>n?n:a)+n-1;
 		int R=(b<0?0:b>n?n:b)+n-1;
-		T ret=defvalue;
+		T lret=defvalue,rret=defvalue;
 		for(;L<R;L>>=1,R>>=1)
 		{
-			if(!(L&1))ret=calcfn(ret,dat[L]);
-			if(!(R&1))ret=calcfn(ret,dat[--R]);
+			if(!(L&1))lret=calcfn(lret,dat[L]);
+			if(!(R&1))rret=calcfn(dat[--R],rret);
 		}
-		return ret;
+		return calcfn(lret,rret);
 	}
 };
