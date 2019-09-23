@@ -6,14 +6,8 @@ struct UF{
 	{
 		for(int i=0;i<n_;i++)parent[i]=i;
 	}
-	int find(int a)
-	{
-		return parent[a]!=a?parent[a]=find(parent[a]):a;
-	}
-	bool same(int a,int b)
-	{
-		return find(a)==find(b);
-	}
+	int find(int a){return parent[a]!=a?parent[a]=find(parent[a]):a;}
+	bool same(int a,int b){return find(a)==find(b);}
 	bool unite(int a,int b)
 	{
 		a=find(a),b=find(b);
@@ -30,4 +24,5 @@ struct UF{
 		}
 		return true;
 	}
+	int size(int a){return rank[find(a)];}
 };
