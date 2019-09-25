@@ -30,7 +30,7 @@ struct DST{
 			}
 		}
 	}
-	T query(int l,int r)//[l,r)
+	T query(int l,int r)const//[l,r)
 	{
 		if(l<0)l=0;
 		if(r>n)r=n;

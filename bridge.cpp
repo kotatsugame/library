@@ -11,8 +11,8 @@ struct bridge{
 		G[u].push_back(v);
 		G[v].push_back(u);
 	}
-	bool operator[](int a){return art[a];}
-	bool is_bridge(int a,int b)
+	bool operator[](int a)const{return art[a];}
+	bool is_bridge(int a,int b)const
 	{
 		if(ord[a]>ord[b])swap(a,b);
 		return ord[a]<low[b];

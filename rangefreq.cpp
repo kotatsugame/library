@@ -19,7 +19,7 @@ struct rangefreq{
 			);
 		}
 	}
-	int query(int a,int b,T x,int k=0,int l=0,int r=-1)//[a,b) count(*<x)
+	int query(int a,int b,T x,int k=0,int l=0,int r=-1)const//[a,b) count(*<x)
 	{
 		if(r<0)r=n;
 		if(b<=l||r<=a)return 0;

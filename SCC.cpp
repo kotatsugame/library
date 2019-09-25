@@ -22,7 +22,7 @@ struct SCC{
 			}
 		}
 	}
-	int operator[](int u){return comp[u];}
+	int operator[](int u)const{return comp[u];}
 	void dfs(int u)
 	{
 		used[u]=true;

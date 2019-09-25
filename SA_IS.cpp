@@ -100,8 +100,8 @@ struct SA{
 		}
 		return induced_sort(S,id,SL,last);
 	}
-	int operator[](int i){return sa[i];}
-	int lower_bound(const string&t)
+	int operator[](int i)const{return sa[i];}
+	int lower_bound(const string&t)const
 	{
 		int L=-1,R=sa.size();
 		while(R-L>1)
@@ -112,7 +112,7 @@ struct SA{
 		}
 		return R;
 	}
-	int upper_bound(const string&t)
+	int upper_bound(const string&t)const
 	{
 		int L=-1,R=sa.size();
 		while(R-L>1)
@@ -123,10 +123,10 @@ struct SA{
 		}
 		return R;
 	}
-	bool contain(const string&t)
+	bool contain(const string&t)const
 	{
 		int id=lower_bound(t);
 		return id<sa.size()&&s.compare(sa[id],t.size(),t)==0;
 	}
-	int size(){return sa.size();}
+	int size()const{return sa.size();}
 };
