@@ -19,14 +19,13 @@ long long garner(const vector<long long>&x,const vector<long long>&m,const int m
 	v[0]=x[0];
 	for(int i=1;i<x.size();i++)
 	{
-		long long X=(x[i]-x[0])%m[i];
+		long long X=x[i];
 		long long M=1;
-		for(int j=0;j<i-1;j++)
+		for(int j=0;j<i;j++)
 		{
+			(X-=v[j]*M)%=m[i];
 			(M*=m[j])%=m[i];
-			(X-=v[j+1]*M)%=m[i];
 		}
-		(M*=m[i-1])%=m[i];
 		if(X<0)X+=m[i];
 		v[i]=X*invmod(M,m[i])%m[i];
 	}
