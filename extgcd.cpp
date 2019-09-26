@@ -8,8 +8,7 @@ T extgcd(T a,T b,T&x,T&y)
 		return a;
 	}
 	T q=a/b;
-	T g=extgcd(b,a-q*b,x,y);
-	T z=x-q*y;
-	x=y;y=z;
+	T g=extgcd(b,a-q*b,y,x);
+	y-=q*x;
 	return g;
 }

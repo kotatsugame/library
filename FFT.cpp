@@ -22,7 +22,7 @@ void dft(vector<complex<double> >&A,int sign)
 }
 vector<long long>multiply(const vector<int>&A,const vector<int>&B)
 {
-	if(A.empty()&&B.empty())
+	if(A.empty()||B.empty())
 	{
 		return(vector<long long>){};
 	}
