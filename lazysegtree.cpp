@@ -3,7 +3,7 @@
 template<typename T>
 struct lazysegtree{
 	function<T(T,T)>calcfn,lazycalcfn;
-	function<T(T,T,unsigned int)>updatefn;
+	function<T(T,T,int,int)>updatefn;
 	int n;
 	T defvalue,lazydefvalue;
 	vector<T>dat,lazy;
@@ -11,7 +11,7 @@ struct lazysegtree{
 	lazysegtree(int n_=0,T defvalue_=0,
 		function<T(T,T)>calcfn_=[](T a,T b){return a+b;},
 		function<T(T,T)>lazycalcfn_=[](T a,T b){return a+b;},
-		function<T(T,T,unsigned int)>updatefn_=[](T a,T b,unsigned int width){return a+b*width;},
+		function<T(T,T,int,int)>updatefn_=[](T a,T b,int l,int r){return a+b*(r-l);},
 		T lazydefvalue_=0
 	):defvalue(defvalue_),lazydefvalue(lazydefvalue_),
 		calcfn(calcfn_),lazycalcfn(lazycalcfn_),updatefn(updatefn_)
@@ -31,7 +31,7 @@ struct lazysegtree{
 	{
 		if(lazyflag[i])
 		{
-			dat[i]=updatefn(dat[i],lazy[i],r-l);
+			dat[i]=updatefn(dat[i],lazy[i],l,r);
 			if(r-l>1)
 			{
 				lazy[2*i+1]=lazycalcfn(lazy[2*i+1],lazy[i]);
