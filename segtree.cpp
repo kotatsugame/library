@@ -3,13 +3,14 @@
 #include<limits>
 template<typename T>
 struct segtree{
-	function<T(T,T)>calcfn,updatefn;
+	using F=function<T(T,T)>;
+	const F calcfn,updatefn;
 	int n;
 	T defvalue;
 	vector<T>dat;
 	segtree(int n_=0,T defvalue_=numeric_limits<T>::max(),
-		function<T(T,T)>calcfn_=[](T a,T b){return a<b?a:b;},
-		function<T(T,T)>updatefn_=[](T a,T b){return b;}
+		const F calcfn_=[](T a,T b){return a<b?a:b;},
+		const F updatefn_=[](T a,T b){return b;}
 	):defvalue(defvalue_),calcfn(calcfn_),updatefn(updatefn_)
 	{
 		n=1;

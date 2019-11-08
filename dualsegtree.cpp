@@ -2,14 +2,15 @@
 #include<functional>
 template<typename T>
 struct dualsegtree{
-	function<T(T,T)>lazycalcfn,updatefn;
+	using F=function<T(T,T)>;
+	const F lazycalcfn,updatefn;
 	int n;
 	T lazydefvalue;
 	vector<T>dat,lazy;
 	vector<bool>lazyflag;
 	dualsegtree(int n_=0,T defvalue=0,
-		function<T(T,T)>lazycalcfn_=[](T a,T b){return a+b;},
-		function<T(T,T)>updatefn_=[](T a,T b){return a+b;},
+		const F lazycalcfn_=[](T a,T b){return a+b;},
+		const F updatefn_=[](T a,T b){return a+b;},
 		T lazydefvalue_=0
 	):lazydefvalue(lazydefvalue_),
 		lazycalcfn(lazycalcfn_),updatefn(updatefn_)
