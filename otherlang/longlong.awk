@@ -12,12 +12,13 @@ function iszero(A,i)
 	}
 	return 1;
 }
-function add(A,B,i)
+function add(A,B_orig,B,i)
 {
+	copy(B_orig,B);
 	for(i=0;i<=INT_LENGTH;++i)
 	{
 		A[i]+=B[i];
-		if(A[i]>=INT_BASE){
+		if(i<INT_LENGTH&&A[i]>=INT_BASE){
 			A[i]-=INT_BASE;
 			A[i+1]+=1;
 		}
