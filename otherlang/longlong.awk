@@ -18,7 +18,7 @@ function add(A,B_orig,B,i)
 	for(i=0;i<=INT_LENGTH;++i)
 	{
 		A[i]+=B[i];
-		if(i<INT_LENGTH&&A[i]>=INT_BASE){
+		if(A[i]>=INT_BASE){
 			A[i]-=INT_BASE;
 			A[i+1]+=1;
 		}
@@ -59,7 +59,7 @@ function cmp(A,B,i)#A<B?-1:A>B?1:0
 		}
 	}
 }
-function mul(A,B_orig,RET,B,negflag,i,j)
+function mul(A,B_orig,B,negflag,i,j)
 {
 	copy(B_orig,B);
 	if(isneg(A))
@@ -72,22 +72,21 @@ function mul(A,B_orig,RET,B,negflag,i,j)
 		negflag+=1;
 		neg(B);
 	}
-	negflag%=2;
-	for(i=0;i<INT_LENGTH;++i)
+	for(i=INT_LENGTH-1;i>=0;--i)
 	{
-		for(j=0;i+j<INT_LENGTH;++j)
+		for(j=INT_LENGTH-i-1;j>0;--j)
 		{
-			RET[i+j]+=A[i]*B[j];
+			A[i+j]+=A[i]*B[j];
 		}
+		A[i]*=B[0];
 	}
 	for(i=0;i<INT_LENGTH-1;++i)
 	{
-		RET[i+1]+=int(RET[i]/INT_BASE);
-		RET[i]%=INT_BASE;
+		A[i+1]+=int(A[i]/INT_BASE);
+		A[i]%=INT_BASE;
 	}
-	RET[INT_LENGTH-1]%=INT_BASE;
-	if(negflag)neg(RET);
-	copy(RET,A);
+	A[INT_LENGTH-1]%=INT_BASE;
+	if(negflag==1)neg(A);
 }
 function div(A,B_orig,B,negflag,dividend,divisor,diff)#C-style
 {
@@ -104,7 +103,7 @@ function div(A,B_orig,B,negflag,dividend,divisor,diff)#C-style
 	}
 	copy(A,dividend);
 	copy(B,divisor);
-	input(sprintf("%.f",to_str(dividend)/to_str(divisor)),A);
+	input_num(sprintf("%.f",to_str(dividend)/to_str(divisor)),A);
 	mul(divisor,A);
 	neg(divisor);
 	add(dividend,divisor);
@@ -121,9 +120,8 @@ function div(A,B_orig,B,negflag,dividend,divisor,diff)#C-style
 		diff+=1;
 		add(dividend,divisor);
 	}
-	input(diff,dividend);
-	add(A,dividend);
-	if(negflag%2==1)neg(A);
+	add_num(A,diff);
+	if(negflag==1)neg(A);
 }
 function mod(A,B,tmp,modulo)
 {
@@ -172,7 +170,134 @@ function to_str(A_orig,A,negflag,flag,i,str)
 			flag=1;
 		}
 	}
-	if(!str)str="0";
+	if(!flag)str="0";
 	return (negflag?"-":"")str;
 }
 function disp(A){print to_str(A)}
+function add_num(A,x)
+{
+	if(x>0)add_num_impl(A,x);
+	else if(x<0)sub_num_impl(A,-x);
+}
+function add_num_impl(A,x,i)
+{
+	i=0;
+	while(i<INT_LENGTH)
+	{
+		A[i]+=x%INT_BASE;
+		x=int(x/INT_BASE);
+		if(A[i]>=INT_BASE)
+		{
+			A[i]-=INT_BASE;
+			A[i+1]+=1;
+		}
+		++i;
+	}
+	A[INT_LENGTH]%=2;
+}
+function sub_num_impl(A,x,i)
+{
+	i=0;
+	while(i<INT_LENGTH)
+	{
+		A[i]+=INT_BASE-x%INT_BASE-(i!=0);
+		x=int(x/INT_BASE);
+		if(A[i]>=INT_BASE)
+		{
+			A[i]-=INT_BASE;
+			A[i+1]+=1;
+		}
+		++i;
+	}
+	A[INT_LENGTH]=(A[INT_LENGTH]+1)%2;
+}
+function mul_num(A,x,i,negflag)
+{
+	if(isneg(A))
+	{
+		negflag+=1;
+		neg(A);
+	}
+	if(x<0)
+	{
+		negflag+=1;
+		x=-x;
+	}
+	for(i=INT_LENGTH-1;i>=0;--i)
+	{
+		A[i]*=x;
+	}
+	for(i=0;i<INT_LENGTH-1;++i)
+	{
+		A[i+1]+=int(A[i]/INT_BASE);
+		A[i]%=INT_BASE;
+	}
+	A[INT_LENGTH-1]%=INT_BASE;
+	if(negflag==1)neg(A);
+}
+function div_num(A,x,negflag,dividend,divisor,diff)
+{
+	if(isneg(A))
+	{
+		negflag+=1;
+		neg(A);
+	}
+	if(x<0)
+	{
+		negflag+=1;
+		x=-x;
+	}
+	copy(A,dividend);
+	input_num(sprintf("%.f",to_str(dividend)/x),A);
+	copy(A,divisor);
+	mul_num(divisor,x);
+	neg(divisor);
+	add(dividend,divisor);
+	diff=0;
+	while(isneg(dividend))
+	{
+		diff-=1;
+		add_num(dividend,x);
+	}
+	input_num(x,divisor);
+	while(cmp(dividend,divisor)!=-1)
+	{
+		diff+=1;
+		add_num(dividend,-x);
+	}
+	add_num(A,diff);
+	if(negflag==1)neg(A);
+}
+function mod_num(A,x,negflag,t,i,ret)#return value
+{
+	if(isneg(A))
+	{
+		negflag=1;
+		neg(A);
+	}
+	t=1;
+	for(i=0;i<INT_LENGTH;++i)
+	{
+		ret+=t*A[i];
+		t=t*INT_BASE%x;
+	}
+	ret%=x;
+	if(negflag&&ret>0)ret=x-ret;
+	input_num(ret,A);
+}
+function input_num(x,A,negflag,i)
+{
+	if(x=="-0")x="0";
+	if(x<0)
+	{
+		negflag=1;
+		x=-x;
+	}
+	for(i=0;i<INT_LENGTH;++i)
+	{
+		A[i]=x%INT_BASE;
+		x=int(x/INT_BASE);
+	}
+	A[INT_LENGTH]=0;
+	if(negflag)neg(A);
+}
