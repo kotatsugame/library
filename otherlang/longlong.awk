@@ -268,7 +268,7 @@ function div_num(A,x,negflag,dividend,divisor,diff)
 	add_num(A,diff);
 	if(negflag==1)neg(A);
 }
-function mod_num(A,x,negflag,t,i,ret)#return value
+function mod_num(A,x,negflag,t,i,ret)
 {
 	if(isneg(A))
 	{
@@ -301,7 +301,7 @@ function input_num(x,A,negflag,i)
 	A[INT_LENGTH]=0;
 	if(negflag)neg(A);
 }
-function power(a,b,x)#a**b%x
+function power(a,b,x)#return value(a**b%x)
 {
 	if(a^b<1e15)return a^b%x;
 	input_num(1,ret);
