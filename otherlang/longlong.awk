@@ -301,3 +301,22 @@ function input_num(x,A,negflag,i)
 	A[INT_LENGTH]=0;
 	if(negflag)neg(A);
 }
+function power(a,b,x)#a**b%x
+{
+	if(a^b<1e15)return a^b%x;
+	input_num(1,ret);
+	input_num(a,A);
+	while(b>0)
+	{
+		if(b%2==1)
+		{
+			mul(ret,A);
+			mod_num(ret,x);
+			b--;
+		}
+		mul(A,A);
+		mod_num(A,x);
+		b/=2;
+	}
+	return to_str(ret);
+}
