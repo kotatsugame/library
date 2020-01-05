@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include<iostream>
 #include<algorithm>
 #include<vector>
@@ -40,11 +41,14 @@ double abs(const Line&);
 double arg(const Point&);
 double arg(const Line&);
 double arg(const Point&,const Point&,const Point&);//a->b->c
+int argtype(const Point&);//(-pi,0]->0,(0,pi]->1
+bool argless(const Point&,const Point&);//sorting points with arg
 double dot(const Point&,const Point&);
 double cross(const Point&,const Point&);
 Point polar(const double,const double);
 Point rotate(const Point&,const double);
 enum{ONLINE_FRONT=-2,CLOCKWISE=-1,ON_SEGMENT=0,COUNTER_CLOCKWISE=1,ONLINE_BACK=2};
+int ccw(const Point&,const Point&);
 int ccw(const Point&,const Point&,const Point&);
 int ccw(const Line&,const Point&);
 bool orthogonal(const Point&,const Point&);
@@ -104,20 +108,30 @@ double arg(const Point&a,const Point&b,const Point&c){
 	double theta=abs(A-B);
 	return min(theta,2*M_PI-theta);
 }
+int argtype(const Point&a)
+{
+	return a.y<-EPS?0:a.y>EPS?1:a.x<0?1:0;
+}
+bool argless(const Point&a,const Point&b)
+{
+	int at=argtype(a),bt=argtype(b);
+	return at!=bt?at<bt:ccw(a,b)>0;
+}
 double dot(const Point&a,const Point&b){return a.x*b.x+a.y*b.y;}
 double cross(const Point&a,const Point&b){return a.x*b.y-a.y*b.x;}
 Point polar(const double r,const double theta){return Point(cos(theta),sin(theta))*r;}
 Point rotate(const Point&p,const double theta){
 	return Point(p.x*cos(theta)-p.y*sin(theta),p.x*sin(theta)+p.y*cos(theta));
 }
-int ccw(const Point&a,const Point&b,const Point&c){
-	Point p=b-a,q=c-a;
-	return cross(p,q)>EPS?COUNTER_CLOCKWISE
-		:cross(p,q)<-EPS?CLOCKWISE
-		:dot(p,q)<0?ONLINE_BACK
-		:norm(p)<norm(q)?ONLINE_FRONT
+int ccw(const Point&a,const Point&b)
+{
+	return cross(a,b)>EPS?COUNTER_CLOCKWISE
+		:cross(a,b)<-EPS?CLOCKWISE
+		:dot(a,b)<0?ONLINE_BACK
+		:norm(a)<norm(b)?ONLINE_FRONT
 		:ON_SEGMENT;
 }
+int ccw(const Point&a,const Point&b,const Point&c){return ccw(b-a,c-a);}
 int ccw(const Line&s,const Point&p){return ccw(s.p1,s.p2,p);}
 bool orthogonal(const Point&a,const Point&b){return eq(dot(a,b),0);}
 bool orthogonal(const Line&s,const Line&t){return orthogonal(vec(s),vec(t));}
