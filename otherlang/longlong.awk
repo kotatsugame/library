@@ -6,7 +6,7 @@ BEGIN{
 function isneg(A){return +A[INT_LENGTH]}
 function iszero(A,i)
 {
-	for(i=0;i<INT_LENGTH;++i)
+	for(i=0;i<=INT_LENGTH;++i)
 	{
 		if(A[i]!=0)return 0;
 	}
@@ -27,11 +27,14 @@ function add(A,B_orig,B,i)
 }
 function neg(A,i)
 {
-	for(i=0;i<INT_LENGTH;++i)
+	if(!iszero(A))
 	{
-		A[i]=INT_BASE-A[i]-(i!=0);
+		for(i=0;i<INT_LENGTH;++i)
+		{
+			A[i]=INT_BASE-A[i]-(i!=0);
+		}
+		A[INT_LENGTH]=1-A[INT_LENGTH];
 	}
-	A[INT_LENGTH]=1-A[INT_LENGTH];
 }
 function cmp(A,B,i)#A<B?-1:A>B?1:0
 {
