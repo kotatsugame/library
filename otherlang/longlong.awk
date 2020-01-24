@@ -306,8 +306,9 @@ function input_num(x,A,negflag,i)
 }
 function power(a,b,x,ret,A)#return value(a**b%x)
 {
+	a%=x;
 	if(a^b<1e15)return a^b%x;
-	input_num(1,ret);
+	input_num(1%x,ret);
 	input_num(a,A);
 	while(b>0)
 	{
