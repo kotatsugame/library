@@ -85,7 +85,7 @@ pair<Point,Point>crosspoint(const Circle&,const Circle&);
 pair<Point,Point>tangent(const Circle&,const Point&);
 vector<Line>tangent(const Circle&,const Circle&);
 bool is_convex(const Polygon&);
-Polygon convex_full(Polygon,bool=false);
+Polygon convex_hull(Polygon,bool=false);
 enum{OUT,ON,IN};
 int contain(const Polygon&,const Point&);
 int contain(const Circle&,const Point&);
@@ -244,7 +244,7 @@ bool is_convex(const Polygon&P){
 		if(ccw(P[i],P[(i+1)%P.size()],P[(i+2)%P.size()])==CLOCKWISE)return false;
 	return true;
 }
-Polygon convex_full(Polygon P,bool ONSEG){
+Polygon convex_hull(Polygon P,bool ONSEG){
 	if(P.size()<=2)return P;
 	sort(P.begin(),P.end());
 	Polygon ret(2*P.size());
@@ -310,7 +310,7 @@ Polygon convex_cut(const Polygon&P,const Line&s){
 	return ret;
 }
 double diameter(Polygon P){
-	if(!is_convex(P))P=convex_full(P);
+	if(!is_convex(P))P=convex_hull(P);
 	int mi=0,Mi=0;
 	for(int i=1;i<P.size();i++){
 		if(P[i].x<P[mi].x)mi=i;
