@@ -3,6 +3,7 @@
 vector<int>Zalgo(const string&s)
 {
 	vector<int>ret(s.size());
+	if(s.empty())return ret;
 	ret[0]=s.size();
 	int i=1,j=0;
 	while(i<s.size())
