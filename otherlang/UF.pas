@@ -1,4 +1,4 @@
-e UnionFind=record n:Longint;pr:Array of Longint;end;
+type UnionFind=record n:Longint;pr:Array of Longint;end;
 procedure init(var uf:UnionFind;N:Longint);
 var i:Longint;
 begin
