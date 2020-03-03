@@ -3,7 +3,7 @@ procedure init(var uf:UnionFind;N:Longint);
 var i:Longint;
 begin
 	uf.n:=N;
-	setlength(uf.pr,N);
+	setlength(uf.pr,N+1);
 	for i:=1 to N do uf.pr[i]:=-1;
 end;
 function find(var uf:UnionFind;a:Longint):Longint;
