@@ -5,13 +5,13 @@ var
 	tmp:SortDataType;
 	mid,il,ir:Longint;
 begin
-	if R-L=2 then begin
-		if SortCmp(A[L+1],A[L])then begin
-			tmp:=A[L];
-			A[L]:=A[L+1];
-			A[L+1]:=tmp;
+	if R-L<20 then begin
+		for ir:=R-1 downto L+1 do for il:=L to ir-1 do if SortCmp(A[il+1],A[il])then begin
+			tmp:=A[il];
+			A[il]:=A[il+1];
+			A[il+1]:=tmp;
 		end;
-	end else if R-L>2 then begin
+	end else begin
 		mid:=(L+R)div 2;
 		if SortCmp(A[mid],A[L])then begin
 			tmp:=A[mid];
@@ -55,5 +55,5 @@ begin
 end;
 function SortCmp(const a,b:SortDataType):Boolean;
 begin
-	SortCmp:=a<b;
+	SortCmp:=a>b;
 end;
