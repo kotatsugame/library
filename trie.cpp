@@ -1,5 +1,6 @@
 #include<array>
 #include<vector>
+#include<string>
 #include<functional>
 template<int char_size>
 struct trie{

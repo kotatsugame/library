@@ -1,5 +1,6 @@
 //Longest Common Prefix(s,s.substr(i)) O(|s|)
 #include<vector>
+#include<string>
 vector<int>Zalgo(const string&s)
 {
 	vector<int>ret(s.size());
