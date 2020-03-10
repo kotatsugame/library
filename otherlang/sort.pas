@@ -55,5 +55,5 @@ begin
 end;
 function SortCmp(const a,b:SortDataType):Boolean;
 begin
-	SortCmp:=a>b;
+	SortCmp:=a<b;
 end;
