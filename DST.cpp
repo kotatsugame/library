@@ -25,7 +25,7 @@ struct DST{
 				dat.back()[j]=dat[0][j];
 				for(int k=2;k<=i&&j+k<=n;k++)
 				{
-					dat.back()[j+k-1]=calcfn(dat[0][j+k-1],dat.back()[j+k-2]);
+					dat.back()[j+k-1]=calcfn(dat.back()[j+k-2],dat[0][j+k-1]);
 				}
 			}
 		}
