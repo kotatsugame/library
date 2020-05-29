@@ -198,8 +198,8 @@ Point projection(const Line&s,const Point&p){
 }
 Point reflection(const Line&s,const Point&p){return projection(s,p)*2-p;}
 Point crosspoint(const Line&s,const Line&t){
-	double d1=abs(cross(vec(s),t.p1-s.p1));
-	double d2=abs(cross(vec(s),t.p2-s.p1));
+	double d1=cross(vec(s),t.p1-s.p1);
+	double d2=-cross(vec(s),t.p2-s.p1);
 	return t.p1+vec(t)*(d1/(d1+d2));
 }
 pair<Point,Point>crosspoint(const Circle&c,const Line&s){
