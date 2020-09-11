@@ -7,20 +7,21 @@ struct lazysegtree{
 	const F calcfn,lazycalcfn;
 	const G updatefn;
 	int n;
-	T defvalue;
+	T defvalue,lazydefvalue;
 	vector<T>dat,lazy;
 	vector<bool>lazyflag;
 	lazysegtree(int n_=0,T defvalue_=0,
 		const F calcfn_=[](T a,T b){return a+b;},
 		const F lazycalcfn_=[](T a,T b){return a+b;},
-		const G updatefn_=[](T a,T b,int l,int r){return a+b*(r-l);}
-	):defvalue(defvalue_),
+		const G updatefn_=[](T a,T b,int l,int r){return a+b*(r-l);},
+		T lazydefvalue_=0
+	):defvalue(defvalue_),lazydefvalue(lazydefvalue_),
 		calcfn(calcfn_),lazycalcfn(lazycalcfn_),updatefn(updatefn_)
 	{
 		n=1;
 		while(n<n_)n<<=1;
 		dat.assign(2*n-1,defvalue);
-		lazy.assign(2*n-1,T());
+		lazy.assign(2*n-1,lazydefvalue);
 		lazyflag.assign(2*n-1,false);
 	}
 	void copy(const vector<T>&v)
@@ -35,10 +36,11 @@ struct lazysegtree{
 			dat[i]=updatefn(dat[i],lazy[i],l,r);
 			if(r-l>1)
 			{
-				lazy[2*i+1]=lazyflag[2*i+1]?lazycalcfn(lazy[2*i+1],lazy[i]):lazy[i];
-				lazy[2*i+2]=lazyflag[2*i+2]?lazycalcfn(lazy[2*i+2],lazy[i]):lazy[i];
+				lazy[2*i+1]=lazycalcfn(lazy[2*i+1],lazy[i]);
+				lazy[2*i+2]=lazycalcfn(lazy[2*i+2],lazy[i]);
 				lazyflag[2*i+1]=lazyflag[2*i+2]=true;
 			}
+			lazy[i]=lazydefvalue;
 			lazyflag[i]=false;
 		}
 	}
@@ -49,7 +51,7 @@ struct lazysegtree{
 		if(b<=l||r<=a)return;
 		else if(a<=l&&r<=b)
 		{
-			lazy[k]=lazyflag[k]?lazycalcfn(lazy[k],x):x;
+			lazy[k]=lazycalcfn(lazy[k],x);
 			lazyflag[k]=true;
 			eval(k,l,r);
 		}
