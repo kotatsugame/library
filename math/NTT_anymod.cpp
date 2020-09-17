@@ -1,4 +1,5 @@
 //require NTT
+#include"NTT.cpp"
 vector<int>multiply(vector<int>A,vector<int>B,const int mod)
 {
 	for(int&a:A)
