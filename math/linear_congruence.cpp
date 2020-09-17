@@ -1,5 +1,6 @@
 //require extgcd
 #include<vector>
+#include"extgcd.cpp"
 pair<long long,long long>linear_congruence(const vector<int>&A,const vector<int>&B,const vector<int>&M)
 //find Ax=B mod M. NA=>(0,-1)
 {
