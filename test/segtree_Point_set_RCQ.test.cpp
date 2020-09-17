@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include<iostream>
 using namespace std;
 #include"../datastructure/segtree.cpp"
