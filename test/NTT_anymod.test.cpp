@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
 #include<iostream>
 using namespace std;
-#include"math/NTT_anymod.cpp"
+#include"../math/NTT_anymod.cpp"
 int main()
 {
 	int N,M;
