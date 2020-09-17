@@ -4,7 +4,7 @@ math/extgcd.cpp
 math/linear_congruence.cpp
 math/point.cpp
 graph/TECC.cpp
-graph/UF.cpp
 graph/bridge.cpp
 graph/diameter.cpp
-graph/weightedUF.cpp
+datastructure/dualsegtree.cpp
+datastructure/weightedUF.cpp
