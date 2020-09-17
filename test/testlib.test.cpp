@@ -4,4 +4,5 @@
 using namespace std;
 main(){
 	int x;cin>>x;cout<<cube(x)<<endl;
+	return 0;
 }
