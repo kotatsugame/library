@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 #include<iostream>
 #include"../string/SA_IS.cpp"
 #include"../string/LCP.cpp"
