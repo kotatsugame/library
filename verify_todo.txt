@@ -1,7 +1,5 @@
 string/manacher.cpp
 math/FFT.cpp
-math/extgcd.cpp
-math/linear_congruence.cpp
 math/point.cpp
 graph/TECC.cpp
 graph/bridge.cpp
