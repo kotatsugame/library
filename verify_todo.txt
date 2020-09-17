@@ -5,5 +5,4 @@ graph/TECC.cpp
 graph/bridge.cpp
 graph/diameter.cpp
 datastructure/dualsegtree.cpp
-datastructure/weightedUF.cpp
 datastructure/trie.cpp
