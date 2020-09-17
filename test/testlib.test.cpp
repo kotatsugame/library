@@ -2,7 +2,6 @@
 #include<iostream>
 #include"../testlib.cpp"
 using namespace std;
-main(){
+int main(){
 	int x;cin>>x;cout<<cube(x)<<endl;
-	return 0;
 }
