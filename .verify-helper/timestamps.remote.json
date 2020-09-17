@@ -20,5 +20,6 @@
 "test/linear_congruence.test.cpp": "2020-09-17 17:14:44 +0900",
 "test/rangefreq.test.cpp": "2020-09-17 16:49:13 +0900",
 "test/segtree_Point_add_RSQ.test.cpp": "2020-09-17 16:36:23 +0900",
-"test/segtree_Point_set_RCQ.test.cpp": "2020-09-17 16:36:23 +0900"
+"test/segtree_Point_set_RCQ.test.cpp": "2020-09-17 16:36:23 +0900",
+"test/weightedUF.test.cpp": "2020-09-17 17:35:25 +0900"
 }
