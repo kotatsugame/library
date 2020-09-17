@@ -1,1 +1,1 @@
-int cube(int x){return x*x*x;}
+#define cube(x) (x)*(x)*(x)
