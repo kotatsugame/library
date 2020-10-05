@@ -2,17 +2,17 @@
 #include<iostream>
 using namespace std;
 #include"../datastructure/segtree.cpp"
-const long mod=998244353;
+#include"../math/modint.cpp"
+using mint=modint<998244353>;
 int main()
 {
 	int N,Q;
 	cin>>N>>Q;
-	vector<pair<long,long> >A(N);
+	vector<pair<mint,mint> >A(N);
 	for(int i=0;i<N;i++)cin>>A[i].first>>A[i].second;
-	segtree<pair<long,long> >P(N,make_pair(1L,0L),
-	[](pair<long,long>a,pair<long,long>b){return make_pair(a.first*b.first%mod,(a.second*b.first+b.second)%mod);},
-	[](pair<long,long>a,pair<long,long>b){return b;}
-	);
+	segtree<pair<mint,mint> >P(N,make_pair(1,0),
+	[](pair<mint,mint>a,pair<mint,mint>b){a.second=a.second*b.first+b.second;a.first*=b.first;return a;},
+	[](pair<mint,mint>a,pair<mint,mint>b){return b;});
 	P.copy(A);
 	for(;Q--;)
 	{
@@ -20,8 +20,8 @@ int main()
 		if(t==0)P.update(a,make_pair(b,c));
 		else
 		{
-			pair<long,long>p=P.query(a,b);
-			cout<<(p.first*c+p.second)%mod<<endl;
+			pair<mint,mint>p=P.query(a,b);
+			cout<<p.first*c+p.second<<endl;
 		}
 	}
 }

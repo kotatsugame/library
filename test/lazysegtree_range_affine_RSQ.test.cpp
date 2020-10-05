@@ -2,17 +2,18 @@
 #include<iostream>
 using namespace std;
 #include"../datastructure/lazysegtree.cpp"
-const long mod=998244353;
+#include"../math/modint.cpp"
+using mint=modint<998244353>;
 int main()
 {
 	int N,Q;
 	cin>>N>>Q;
-	vector<pair<long,long> >A(N);
+	vector<pair<mint,mint> >A(N);
 	for(int i=0;i<N;i++)cin>>A[i].first;
-	lazysegtree<pair<long,long> >P(N,make_pair(0L,0L),
-	[](pair<long,long>a,pair<long,long>b){return make_pair((a.first+b.first)%mod,0L);},
-	[](pair<long,long>a,pair<long,long>b){return make_pair(a.first*b.first%mod,(a.second*b.first+b.second)%mod);},
-	[](pair<long,long>a,pair<long,long>b,int l,int r){return make_pair((a.first*b.first+b.second*(r-l))%mod,0L);});
+	lazysegtree<pair<mint,mint> >P(N,make_pair(0,0),
+	[](pair<mint,mint>a,pair<mint,mint>b){a.first+=b.first;return a;},
+	[](pair<mint,mint>a,pair<mint,mint>b){a.second=a.second*b.first+b.second;a.first*=b.first;return a;},
+	[](pair<mint,mint>a,pair<mint,mint>b,int l,int r){a.first=a.first*b.first+b.second*(r-l);return a;});
 	P.copy(A);
 	for(;Q--;)
 	{
