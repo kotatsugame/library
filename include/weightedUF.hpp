@@ -1,1 +1,1 @@
-#include"datastructure/weightedUF.cpp"
+#include"../datastructure/weightedUF.cpp"

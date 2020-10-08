@@ -1,1 +1,1 @@
-#include"datastructure/lazysegtree.cpp"
+#include"../datastructure/lazysegtree.cpp"

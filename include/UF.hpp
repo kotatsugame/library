@@ -1,1 +1,1 @@
-#include"datastructure/UF.cpp"
+#include"../datastructure/UF.cpp"

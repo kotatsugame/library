@@ -1,1 +1,1 @@
-#include"datastructure/segtree.cpp"
+#include"../datastructure/segtree.cpp"

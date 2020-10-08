@@ -1,1 +1,1 @@
-#include"string/SA_doubling.cpp"
+#include"../string/SA_doubling.cpp"

@@ -1,1 +1,1 @@
-#include"graph/SCC.cpp"
+#include"../graph/SCC.cpp"

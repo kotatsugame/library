@@ -1,1 +1,1 @@
-#include"datastructure/rangefreq.cpp"
+#include"../datastructure/rangefreq.cpp"
