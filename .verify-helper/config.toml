@@ -1,2 +1,3 @@
 [[languages.cpp.environments]]
+CXX = "/usr/bin/g++"
 CXXFLAGS = ["-I /home/runner/work/library/library/include"]
