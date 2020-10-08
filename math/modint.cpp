@@ -37,12 +37,12 @@ struct modint{
 		}
 		return modint(x);
 	}
-	constexpr modint operator+(const modint&a)const noexcept{return modint(*this)+=a;}
-	constexpr modint operator-(const modint&a)const noexcept{return modint(*this)-=a;}
-	constexpr modint operator*(const modint&a)const noexcept{return modint(*this)*=a;}
-	constexpr modint operator/(const modint&a)const noexcept{return modint(*this)/=a;}
-	constexpr bool operator==(const modint&a)const noexcept{return x==a.x;}
-	constexpr bool operator!=(const modint&a)const noexcept{return x!=a.x;}
+	friend constexpr modint operator+(modint a,const modint&b){return a+=b;}
+	friend constexpr modint operator-(modint a,const modint&b){return a-=b;}
+	friend constexpr modint operator*(modint a,const modint&b){return a*=b;}
+	friend constexpr modint operator/(modint a,const modint&b){return a/=b;}
+	friend constexpr modint operator==(const modint&a,const modint&b){return a.x==b.x;}
+	friend constexpr modint operator!=(const modint&a,const modint&b){return a.x!=b.x;}
 	friend ostream&operator<<(ostream&os,const modint&a){return os<<a.x;}
 	friend istream&operator>>(istream&is,modint&a){long long v;is>>v;a=modint(v);return is;}
 };
