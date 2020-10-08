@@ -11,6 +11,7 @@
 "test/UF.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/Zalgo.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/bimatch.test.cpp": "2020-10-09 03:28:26 +0900",
+"test/check.test.cpp": "2020-10-09 04:07:41 +0900",
 "test/dijkstra.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/floor_sum.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/garner.test.cpp": "2020-10-09 03:28:26 +0900",
