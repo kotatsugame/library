@@ -1,1 +1,1 @@
-#include"../math/modint.cpp"
+#include"math/modint.cpp"

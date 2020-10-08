@@ -1,1 +1,1 @@
-#include"../math/NTT.cpp"
+#include"math/NTT.cpp"

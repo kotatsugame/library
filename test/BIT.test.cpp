@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include<iostream>
 using namespace std;
-#include"../include/BIT.hpp"
+#include"BIT.hpp"
 int main()
 {
 	int N,Q;

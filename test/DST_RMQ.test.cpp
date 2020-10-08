@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include<iostream>
 using namespace std;
-#include"../include/DST.hpp"
+#include"DST.hpp"
 int main()
 {
 	int N,Q;

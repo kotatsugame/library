@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/scc"
 #include<iostream>
 using namespace std;
-#include"../include/SCC.hpp"
+#include"SCC.hpp"
 int main()
 {
 	int N,M;

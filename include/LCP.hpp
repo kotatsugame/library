@@ -1,1 +1,1 @@
-#include"../string/LCP.cpp"
+#include"string/LCP.cpp"

@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 #include<iostream>
 using namespace std;
-#include"../include/MF_Dinic.hpp"
+#include"MF_Dinic.hpp"
 int main()
 {
 	int L,R,M;

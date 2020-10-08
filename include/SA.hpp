@@ -1,1 +1,1 @@
-#include"../string/SA.cpp"
+#include"string/SA.cpp"

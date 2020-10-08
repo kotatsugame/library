@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include<iostream>
 using namespace std;
-#include"../include/lazysegtree.hpp"
-#include"../include/modint.hpp"
+#include"lazysegtree.hpp"
+#include"modint.hpp"
 using mint=modint<998244353>;
 int main()
 {

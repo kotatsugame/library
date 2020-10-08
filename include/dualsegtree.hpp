@@ -1,1 +1,1 @@
-#include"../datastructure/dualsegtree.cpp"
+#include"datastructure/dualsegtree.cpp"

@@ -1,1 +1,1 @@
-#include"../math/linear_congruence.cpp"
+#include"math/linear_congruence.cpp"

@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_kth_smallest"
 #include<iostream>
 using namespace std;
-#include"../include/rangefreq.hpp"
+#include"rangefreq.hpp"
 int main()
 {
 	int N,Q;

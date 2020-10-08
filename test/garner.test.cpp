@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod_1000000007"
 #include<iostream>
 using namespace std;
-#include"../include/NTT.hpp"
-#include"../include/garner.hpp"
+#include"NTT.hpp"
+#include"garner.hpp"
 int main()
 {
 	int N,M;

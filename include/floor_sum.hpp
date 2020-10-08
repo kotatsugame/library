@@ -1,1 +1,1 @@
-#include"../math/floor_sum.cpp"
+#include"math/floor_sum.cpp"

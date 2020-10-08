@@ -1,1 +1,1 @@
-#include"../graph/bridge.cpp"
+#include"graph/bridge.cpp"

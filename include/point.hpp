@@ -1,1 +1,1 @@
-#include"../math/point.cpp"
+#include"math/point.cpp"

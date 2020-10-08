@@ -1,1 +1,1 @@
-#include"../graph/MF_Dinic.cpp"
+#include"graph/MF_Dinic.cpp"

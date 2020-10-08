@@ -1,1 +1,1 @@
-#include"../datastructure/DST.cpp"
+#include"datastructure/DST.cpp"

@@ -1,1 +1,1 @@
-#include"../math/garner.cpp"
+#include"math/garner.cpp"

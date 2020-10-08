@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 #include<iostream>
 using namespace std;
-#include"../include/Zalgo.hpp"
+#include"Zalgo.hpp"
 int main()
 {
 	string s;cin>>s;

@@ -1,1 +1,1 @@
-#include"../graph/diameter.cpp"
+#include"graph/diameter.cpp"

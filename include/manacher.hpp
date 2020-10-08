@@ -1,1 +1,1 @@
-#include"../string/manacher.cpp"
+#include"string/manacher.cpp"

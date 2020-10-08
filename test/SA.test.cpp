@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/suffixarray"
 #include<iostream>
 using namespace std;
-#include"../include/SA.hpp"
+#include"SA.hpp"
 int main()
 {
 	string s;

@@ -1,1 +1,1 @@
-#include"../datastructure/BIT.cpp"
+#include"datastructure/BIT.cpp"

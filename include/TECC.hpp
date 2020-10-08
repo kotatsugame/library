@@ -1,1 +1,1 @@
-#include"../graph/TECC.cpp"
+#include"graph/TECC.cpp"
