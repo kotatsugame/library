@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 #include<iostream>
 using namespace std;
-#include"../graph/bimatch.cpp"
+#include"../include/bimatch.hpp"
 int main()
 {
 	int L,R,M;

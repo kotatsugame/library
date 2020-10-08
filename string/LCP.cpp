@@ -1,5 +1,5 @@
 //construct LCP O(N) require SA
-#include"SA_IS.cpp"
+#include"../include/SA.hpp"
 struct LCP{
 	vector<int>lcp;
 	LCP(const SA&sa)

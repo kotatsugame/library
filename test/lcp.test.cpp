@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 #include<iostream>
 using namespace std;
-#include"../string/LCP.cpp"
+#include"../sinclude/LCP.hpp"
 int main()
 {
 	string s;cin>>s;

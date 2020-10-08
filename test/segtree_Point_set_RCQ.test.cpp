@@ -1,8 +1,8 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include<iostream>
 using namespace std;
-#include"../datastructure/segtree.cpp"
-#include"../math/modint.cpp"
+#include"../include/segtree.hpp"
+#include"../include/modint.hpp"
 using mint=modint<998244353>;
 int main()
 {

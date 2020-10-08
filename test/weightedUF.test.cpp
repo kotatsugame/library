@@ -1,7 +1,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 #include<iostream>
 using namespace std;
-#include"../datastructure/weightedUF.cpp"
+#include"../include/weightedUF.hpp"
 int main()
 {
 	int N,Q;

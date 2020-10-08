@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/unionfind"
 #include<iostream>
 using namespace std;
-#include"../datastructure/UF.cpp"
+#include"../include/UF.hpp"
 int main()
 {
 	int N,Q;

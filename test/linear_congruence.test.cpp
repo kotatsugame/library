@@ -1,7 +1,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/186"
 #include<iostream>
 using namespace std;
-#include"../math/linear_congruence.cpp"
+#include"../include/linear_congruence.hpp"
 int main()
 {
 	vector<int>r(3),m(3);
