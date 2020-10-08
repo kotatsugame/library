@@ -1,0 +1,2 @@
+[[languages.cpp.environments]]
+CXXFLAGS = ["-I /home/runner/work/library/library/include"]
