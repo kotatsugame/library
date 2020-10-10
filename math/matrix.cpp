@@ -120,13 +120,13 @@ struct Matrix{
 			if(id!=ret)swap(dat[ret],dat[id]);
 			{
 				const T a=dat[ret][j];
-				for(int k=0;k<M;k++)dat[ret][k]/=a;
+				for(int k=j;k<M;k++)dat[ret][k]/=a;
 			}
 			for(int i=0;i<N;i++)
 			{
 				if(i==ret)continue;
 				const T a=dat[i][j];
-				for(int k=0;k<M;k++)dat[i][k]-=dat[ret][k]*a;
+				for(int k=j;k<M;k++)dat[i][k]-=dat[ret][k]*a;
 			}
 			ret++;
 		}
