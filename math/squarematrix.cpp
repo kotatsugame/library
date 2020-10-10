@@ -1,7 +1,7 @@
 #include<array>
 template<typename T,unsigned int N>
 struct Matrix{
-	array<array<T,N> >dat;
+	array<array<T,N>,N>dat;
 	array<T,N>&operator[](int i){return dat[i];}
 	const array<T,N>&operator[](int i)const{return dat[i];}
 	static Matrix eye(){
