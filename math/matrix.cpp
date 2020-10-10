@@ -70,34 +70,65 @@ struct Matrix{
 			res[i][j]=dat[i][j]*A;
 		return res;
 	}
-	T det()const{
+	T det()const
+	{
 		assert(N==M);
 		Matrix A=*this;
 		T ret=1;
-		for(int i=0;i<N;i++)
+		for(int j=0;j<N;j++)
 		{
 			int id=-1;
-			for(int j=i;j<N;j++)
+			for(int i=j;i<N;i++)
 			{
-				if(A[j][i]!=0)
+				if(A[i][j]!=0)
 				{
-					id=j;
+					id=i;
 					break;
 				}
 			}
 			if(id==-1)return T(0);
-			if(id!=i)
+			if(id!=j)
 			{
-				swap(A[i],A[id]);
-				ret*=-1;
+				swap(A[j],A[id]);
+				ret=-ret;
 			}
-			ret*=A[i][i];
-			for(int j=i+1;j<N;j++)A[i][j]/=A[i][i];
-			for(int j=i+1;j<N;j++)
+			ret*=A[j][j];
+			for(int k=j+1;k<N;k++)A[j][k]/=A[j][j];
+			for(int i=j+1;i<N;i++)
 			{
-				const T a=A[j][i];
-				for(int k=i+1;k<N;k++)A[j][k]-=A[i][k]*a;
+				const T a=A[i][j];
+				for(int k=j+1;k<N;k++)A[i][k]-=A[j][k]*a;
 			}
+		}
+		return ret;
+	}
+	int elimination()
+	{
+		int ret=0;
+		for(int j=0;j<M;j++)
+		{
+			int id=-1;
+			for(int i=ret;i<N;i++)
+			{
+				if(dat[i][j]!=0)
+				{
+					id=i;
+					break;
+				}
+			}
+			if(id==-1)continue;
+			if(id!=ret)swap(dat[ret],dat[id]);
+			{
+				const T a=dat[ret][j];
+				for(int k=0;k<M;k++)dat[ret][k]/=a;
+			}
+			for(int i=0;i<N;i++)
+			{
+				if(i==ret)continue;
+				const T a=dat[i][j];
+				for(int k=0;k<M;k++)dat[i][k]-=dat[ret][k]*a;
+			}
+			ret++;
 		}
 		return ret;
 	}
