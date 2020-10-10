@@ -42,8 +42,8 @@ struct modint{
 	friend constexpr modint operator-(const modint&a,const modint&b){return modint(a)-=b;}
 	friend constexpr modint operator*(const modint&a,const modint&b){return modint(a)*=b;}
 	friend constexpr modint operator/(const modint&a,const modint&b){return modint(a)/=b;}
-	friend constexpr modint operator==(const modint&a,const modint&b){return a.x==b.x;}
-	friend constexpr modint operator!=(const modint&a,const modint&b){return a.x!=b.x;}
+	friend constexpr bool operator==(const modint&a,const modint&b){return a.x==b.x;}
+	friend constexpr bool operator!=(const modint&a,const modint&b){return a.x!=b.x;}
 	friend ostream&operator<<(ostream&os,const modint&a){return os<<a.x;}
 	friend istream&operator>>(istream&is,modint&a){long long v;is>>v;a=modint(v);return is;}
 };
