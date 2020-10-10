@@ -5,7 +5,8 @@ template<int m>
 struct modint{
 	unsigned int x;
 	constexpr modint()noexcept:x(){}
-	constexpr modint(long long _x)noexcept:x((_x%=m)<0?_x+m:_x){}
+	template<typename T>
+	constexpr modint(T _x)noexcept:x((_x%=m)<0?_x+m:_x){}
 	constexpr unsigned int val()const noexcept{return x;}
 	constexpr modint&operator++()noexcept{if(++x==m)x=0;return*this;}
 	constexpr modint&operator--()noexcept{if(x==0)x=m;--x;return*this;}
