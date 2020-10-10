@@ -1,12 +1,9 @@
 #include<array>
 template<typename T,unsigned int N>
 struct Matrix{
-	using arr=array<T,N>;
-	using mat=array<arr,N>;
-	mat dat;
-	Matrix(){}
-	arr&operator[](int i){return dat[i];}
-	const arr&operator[](int i)const{return dat[i];}
+	array<array<T,N> >dat;
+	array<T,N>&operator[](int i){return dat[i];}
+	const array<T,N>&operator[](int i)const{return dat[i];}
 	static Matrix eye(){
 		Matrix res;
 		for(int i=0;i<N;i++)res[i][i]=1;
