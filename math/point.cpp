@@ -63,8 +63,9 @@ bool intersect(const Line&,const Segment&);
 bool intersect(const Segment&,const Line&);
 bool intersect(const Circle&,const Point&);
 int intersect(const Circle&,const Line&);//count contacts
-int intersect(const Circle&,const Segment&);
-int intersect(const Circle&,const Circle&);//count common tangents
+int intersect(const Circle&,const Segment&);//count contacts
+bool intersect(const Circle&,const Circle&);
+int count_tangent(const Circle&,const Circle&);//count common tangents
 double distance(const Point&,const Point&);
 double distance(const Line&,const Point&);
 double distance(const Line&,const Line&);
@@ -161,7 +162,11 @@ int intersect(const Circle&c,const Segment&s){
 		:intersect(s,h)?eq(distance(c.o,h),c.r)?1:2
 		:0;
 }
-int intersect(const Circle&a,const Circle&b){
+bool intersect(const Circle&a,const Circle&b){
+	int c=count_tangent(a,b);
+	return 1<=c&&c<=3;
+}
+int count_tangent(const Circle&a,const Circle&b){
 	double d=distance(a.o,b.o);
 	return eq(d,a.r+b.r)?3:d>a.r+b.r?4:eq(d,abs(a.r-b.r))?1:d>abs(a.r-b.r)?2:0;
 }
