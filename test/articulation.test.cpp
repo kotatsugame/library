@@ -1,5 +1,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1622"
 #include<iostream>
+#include<queue>
 using namespace std;
 #include"TECC.hpp"
 int H,W;
