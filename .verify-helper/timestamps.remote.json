@@ -14,6 +14,7 @@
 "test/articulation.test.cpp": "2020-11-06 01:13:32 +0900",
 "test/bimatch.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/dijkstra.test.cpp": "2020-10-09 03:28:26 +0900",
+"test/dualsegtree_range_add.test.cpp": "2020-11-14 04:14:15 +0900",
 "test/floor_sum.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/garner.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/lazysegtree_range_affine_RSQ.test.cpp": "2020-10-11 07:15:24 +0900",
