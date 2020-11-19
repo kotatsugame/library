@@ -91,6 +91,7 @@ enum{OUT,ON,IN};
 int contain(const Polygon&,const Point&);
 int contain(const Circle&,const Point&);
 int contain(const Circle&,const Segment&);
+int convex_contain(const Polygon&,const Point&);//O(log |P|)
 Polygon convex_cut(const Polygon&,const Line&);
 double diameter(Polygon);
 double area(const Polygon&);
@@ -303,6 +304,33 @@ int contain(const Circle&c,const Point&p){
 int contain(const Circle&c,const Segment&s){
 	double d1=distance(c.o,s.p1),d2=distance(c.o,s.p2);
 	return d1<c.r+EPS&&d2<c.r+EPS?eq(d1,c.r)||eq(d2,c.r)?ON:IN:OUT;
+}
+int convex_contain(const Polygon&P,const Point&p)
+{
+	if(P[0]==p)return ON;
+	int l=0,r=P.size();
+	while(r-l>1)
+	{
+		int mid=(l+r)/2;
+		int t=ccw(P[0],P[mid],p);
+		if(t==CLOCKWISE)r=mid;
+		else l=mid;
+	}
+	if(r==1)return OUT;
+	if(l+1==P.size())
+	{
+		if(intersect(Segment(P[0],P[P.size()-1]),p))return ON;
+		else return OUT;
+	}
+	if(l==1&&intersect(Segment(P[0],P[1]),p))return ON;
+	Polygon tmp={P[0],P[l],P[l+1]};
+	int ret=contain(tmp,p);
+	if(ret==ON)
+	{
+		if(intersect(Segment(P[l],P[l+1]),p))return ON;
+		else return IN;
+	}
+	return ret;
 }
 Polygon convex_cut(const Polygon&P,const Line&s){
 	Polygon ret;
