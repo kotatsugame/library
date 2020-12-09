@@ -40,7 +40,7 @@ double abs(const Point&);
 double abs(const Line&);
 double arg(const Point&);
 double arg(const Line&);
-double arg(const Point&,const Point&,const Point&);//a->b->c
+double arg(const Point&,const Point&,const Point&);// /_abc,[0,pi]
 int argtype(const Point&);//(-pi,0]->0,(0,pi]->1
 bool argless(const Point&,const Point&);//sorting points with arg
 double dot(const Point&,const Point&);
@@ -106,7 +106,7 @@ double abs(const Line&s){return abs(vec(s));}
 double arg(const Point&p){return atan2(p.y,p.x);}
 double arg(const Line&s){return arg(vec(s));}
 double arg(const Point&a,const Point&b,const Point&c){
-	double A=arg(b-a),B=arg(c-b);
+	double A=arg(a-b),B=arg(c-b);
 	double theta=abs(A-B);
 	return min(theta,2*M_PI-theta);
 }
