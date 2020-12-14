@@ -93,7 +93,10 @@ struct Matrix{
 				ret=-ret;
 			}
 			ret*=A[j][j];
-			for(int k=j+1;k<N;k++)A[j][k]/=A[j][j];
+			{
+				const T a=1/A[j][j];
+				for(int k=j+1;k<N;k++)A[j][k]*=a;
+			}
 			for(int i=j+1;i<N;i++)
 			{
 				const T a=A[i][j];
@@ -119,8 +122,8 @@ struct Matrix{
 			if(id==-1)continue;
 			if(id!=ret)dat[ret].swap(dat[id]);
 			{
-				const T a=dat[ret][j];
-				for(int k=j;k<M;k++)dat[ret][k]/=a;
+				const T a=1/dat[ret][j];
+				for(int k=j;k<M;k++)dat[ret][k]*=a;
 			}
 			for(int i=0;i<N;i++)
 			{
