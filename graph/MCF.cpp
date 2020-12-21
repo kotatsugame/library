@@ -52,9 +52,9 @@ struct MCF{
 		T ret=0;
 		while(f>0)
 		{
+			priority_queue<pair<T,int>,vector<pair<T,int> >,greater<pair<T,int> > >P;
 			fill(d.begin(),d.end(),numeric_limits<T>::max());
 			d[s]=0;
-			priority_queue<pair<T,int>,vector<pair<T,int> >,greater<pair<T,int> > >P;
 			P.push(make_pair(0,s));
 			while(!P.empty())
 			{
