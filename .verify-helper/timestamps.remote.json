@@ -2,6 +2,7 @@
 "test/BIT.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/DST_RMQ.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/DST_RSQ.test.cpp": "2020-10-09 03:28:26 +0900",
+"test/MCF_negative.test.cpp": "2020-12-22 03:48:50 +0900",
 "test/MF_Dinic.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/NTT.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/NTT_anymod.test.cpp": "2020-10-09 03:28:26 +0900",
