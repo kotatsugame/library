@@ -5,7 +5,7 @@ using namespace std;
 int N,K;
 int A[200];
 int ans=0;
-main()
+int main()
 {
 	cin>>N>>K;
 	MCF<int>Q(2*N+2);

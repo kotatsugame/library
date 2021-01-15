@@ -5,7 +5,7 @@ using namespace std;
 #include"matrix.hpp"
 using mint=modint<2>;
 using Mat=Matrix<mint>;
-main()
+int main()
 {
 	int N;
 	cin>>N;

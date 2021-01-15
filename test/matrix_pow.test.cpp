@@ -5,7 +5,7 @@ using namespace std;
 #include"matrix.hpp"
 using mint=modint<(int)1e9+7>;
 using Mat=Matrix<mint>;
-main()
+int main()
 {
 	int M,K;cin>>M>>K;
 	Mat A(M);

@@ -8,7 +8,7 @@ int N,M;
 long B[1<<17];
 vector<int>E[1<<17];
 int R[1<<17];
-main()
+int main()
 {
 	cin>>N>>M;
 	for(int i=0;i<N;i++)

@@ -5,7 +5,7 @@ using namespace std;
 #include"squarematrix.hpp"
 using mint=modint<(int)1e9+7>;
 using Mat=Matrix<mint,6>;
-main()
+int main()
 {
 	long N;cin>>N;
 	Mat A;
