@@ -159,7 +159,7 @@ int intersect(const Circle&c,const Segment&s){
 	double d1=distance(c.o,s.p1),d2=distance(c.o,s.p2);
 	return distance(c.o,h)>c.r+EPS?0
 		:d1<c.r-EPS&&d2<c.r-EPS?0
-		:d1<c.r-EPS&&d2>c.r-EPS||d1>c.r-EPS&&d2<c.r-EPS?1
+		:(d1<c.r-EPS&&d2>c.r-EPS)||(d1>c.r-EPS&&d2<c.r-EPS)?1
 		:intersect(s,h)?eq(distance(c.o,h),c.r)?1:2
 		:0;
 }
