@@ -1,5 +1,6 @@
 string/manacher.cpp
 math/FFT.cpp
 math/point.cpp
+math/integer_point.cpp
 graph/diameter.cpp
 datastructure/trie.cpp
