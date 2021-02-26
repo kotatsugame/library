@@ -4,6 +4,23 @@
 using Int=long long;
 int sign(Int a){return a>0?1:a<0?-1:0;}
 Int sqr(Int a){return a*a;}
+struct Rational{
+	Int a,b;
+	Rational(Int a_=0):a(a_),b(1){}
+	Rational(Int a_,Int b_){
+		Int g=a_,h=b_;
+		while(h){
+			Int t=g%h;
+			g=h;
+			h=t;
+		}
+		a=a_/g;
+		b=b_/g;
+		if(b<0)a=-a,b=-b;
+	}
+	bool operator<(const Rational&r)const{return a*r.b<r.a*b;}
+	bool operator==(const Rational&r)const{return a==r.a&&b==r.b;}
+};
 struct Point{
 	Int x,y;
 	Point(Int x_=0,Int y_=0):x(x_),y(y_){}
@@ -57,6 +74,12 @@ int intersect(const Circle&,const Segment&);//overflow, count contacts
 bool intersect(const Circle&,const Circle&);
 int count_tangent(const Circle&,const Circle&);//count common tangents
 Int distance2(const Point&,const Point&);
+Rational distance2(const Line&,const Point&);
+Rational distance2(const Line&,const Line&);
+Rational distance(const Segment&,const Point&);
+Rational distance(const Segment&,const Segment&);
+Rational distance(const Line&,const Segment&);
+Rational distance(const Segment&,const Line&);
 bool is_convex(const Polygon&);
 Polygon convex_hull(Polygon,bool=false);
 enum{OUT,ON,IN};
@@ -103,10 +126,8 @@ bool intersect(const Line&s,const Segment&t){
 bool intersect(const Segment&s,const Line&t){return intersect(t,s);}
 bool intersect(const Circle&c,const Point&p){return distance2(c.o,p)==sqr(c.r);}
 int intersect(const Circle&c,const Line&s){
-	Int A=(s.p2.y-s.p1.y)*c.o.x+(s.p1.x-s.p2.x)*c.o.y-s.p1.x*s.p2.y+s.p1.y*s.p2.x;
-	Int B=norm(s);
-	//distance2=A/B
-	return A==B*sqr(c.r)?1:A<B*sqr(c.r)?2:0;
+	Rational r=distance2(s,c.o);
+	return r.a==r.b*sqr(c.r)?1:r.a<r.b*sqr(c.r)?2:0;
 }
 int intersect(const Circle&c,const Segment&s){
 	Int d1=distance2(c.o,s.p1),d2=distance2(c.o,s.p2);
@@ -126,6 +147,29 @@ int count_tangent(const Circle&a,const Circle&b){
 	return d==sqr(a.r+b.r)?3:d>sqr(a.r+b.r)?4:d==sqr(a.r-b.r)?1:d>sqr(a.r-b.r)?2:0;
 }
 Int distance2(const Point&a,const Point&b){return norm(a-b);}
+Rational distance2(const Line&s,const Point&p){
+	Int A=(s.p2.y-s.p1.y)*c.o.x+(s.p1.x-s.p2.x)*c.o.y-s.p1.x*s.p2.y+s.p1.y*s.p2.x;
+	Int B=norm(s);
+	return Rational(A,B);
+}
+Rational distance2(const Line&s,const Line&t){
+	return intersect(s,t)?Rational(0):distance2(s,t.p1);
+}
+Rational distance(const Segment&s,const Point&p){
+	return dot(vec(s),p-s.p1)<0?Rational(distance2(p,s.p1))
+		:dot(-vec(s),p-s.p2)<0?Rational(distance2(p,s.p2))
+		:distance2(Line(s),p);
+}
+Rational distance(const Segment&s,const Segment&t){
+	return intersect(s,t)?Rational(0):min({
+		distance2(s,t.p1),distance2(s,t.p2),
+		distance2(t,s.p1),distance2(t,s.p2)
+	});
+}
+Rational distance(const Line&s,const Segment&t){
+	return intersect(s,t)?Rational(0):min(distance2(s,t.p1),distance2(s,t.p2));
+}
+Rational distance2(const Segment&s,const Line&t){return distance2(t,s);}
 bool is_convex(const Polygon&P){
 	for(int i=0;i<P.size();i++)
 		if(ccw(P[i],P[(i+1)%P.size()],P[(i+2)%P.size()])==CLOCKWISE)return false;
