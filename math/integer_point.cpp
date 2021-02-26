@@ -76,10 +76,10 @@ int count_tangent(const Circle&,const Circle&);//count common tangents
 Int distance2(const Point&,const Point&);
 Rational distance2(const Line&,const Point&);
 Rational distance2(const Line&,const Line&);
-Rational distance(const Segment&,const Point&);
-Rational distance(const Segment&,const Segment&);
-Rational distance(const Line&,const Segment&);
-Rational distance(const Segment&,const Line&);
+Rational distance2(const Segment&,const Point&);
+Rational distance2(const Segment&,const Segment&);
+Rational distance2(const Line&,const Segment&);
+Rational distance2(const Segment&,const Line&);
 bool is_convex(const Polygon&);
 Polygon convex_hull(Polygon,bool=false);
 enum{OUT,ON,IN};
@@ -148,25 +148,25 @@ int count_tangent(const Circle&a,const Circle&b){
 }
 Int distance2(const Point&a,const Point&b){return norm(a-b);}
 Rational distance2(const Line&s,const Point&p){
-	Int A=(s.p2.y-s.p1.y)*c.o.x+(s.p1.x-s.p2.x)*c.o.y-s.p1.x*s.p2.y+s.p1.y*s.p2.x;
+	Int A=(s.p2.y-s.p1.y)*p.x+(s.p1.x-s.p2.x)*p.y-s.p1.x*s.p2.y+s.p1.y*s.p2.x;
 	Int B=norm(s);
 	return Rational(A,B);
 }
 Rational distance2(const Line&s,const Line&t){
 	return intersect(s,t)?Rational(0):distance2(s,t.p1);
 }
-Rational distance(const Segment&s,const Point&p){
+Rational distance2(const Segment&s,const Point&p){
 	return dot(vec(s),p-s.p1)<0?Rational(distance2(p,s.p1))
 		:dot(-vec(s),p-s.p2)<0?Rational(distance2(p,s.p2))
 		:distance2(Line(s),p);
 }
-Rational distance(const Segment&s,const Segment&t){
+Rational distance2(const Segment&s,const Segment&t){
 	return intersect(s,t)?Rational(0):min({
 		distance2(s,t.p1),distance2(s,t.p2),
 		distance2(t,s.p1),distance2(t,s.p2)
 	});
 }
-Rational distance(const Line&s,const Segment&t){
+Rational distance2(const Line&s,const Segment&t){
 	return intersect(s,t)?Rational(0):min(distance2(s,t.p1),distance2(s,t.p2));
 }
 Rational distance2(const Segment&s,const Line&t){return distance2(t,s);}
