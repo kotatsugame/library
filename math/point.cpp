@@ -41,7 +41,7 @@ double abs(const Line&);
 double arg(const Point&);
 double arg(const Line&);
 double arg(const Point&,const Point&,const Point&);// /_abc,[0,pi]
-int argtype(const Point&);//(-pi,0]->0,(0,pi]->1
+int argtype(const Point&);////(-pi,0]->-1,(0,pi]->1,(0,0)->0
 bool argless(const Point&,const Point&);//sorting points with arg
 double dot(const Point&,const Point&);
 double cross(const Point&,const Point&);
@@ -112,7 +112,7 @@ double arg(const Point&a,const Point&b,const Point&c){
 }
 int argtype(const Point&a)
 {
-	return a.y<-EPS?0:a.y>EPS?1:a.x<0?1:0;
+	return a.y<-EPS?-1:a.y>EPS?1:a.x<-EPS?1:a.x>EPS?-1:0;
 }
 bool argless(const Point&a,const Point&b)
 {

@@ -50,7 +50,7 @@ using Polygon=vector<Point>;
 Point vec(const Line&);
 Int norm(const Point&);
 Int norm(const Line&);
-int argtype(const Point&);//(-pi,0]->0,(0,pi]->1
+int argtype(const Point&);//(-pi,0]->-1,(0,pi]->1,(0,0)->0
 bool argless(const Point&,const Point&);//sorting points with arg
 Int dot(const Point&,const Point&);
 Int cross(const Point&,const Point&);
@@ -92,7 +92,7 @@ Int diameter2(Polygon P);
 Point vec(const Line&s){return s.p2-s.p1;}
 Int norm(const Point&p){return p.x*p.x+p.y*p.y;}
 Int norm(const Line&s){return norm(vec(s));}
-int argtype(const Point&a){return a.y<0?0:a.y>0?1:a.x<0?1:0;}
+int argtype(const Point&a){return a.y<0?-1:a.y>0?1:a.x<0?1:a.x>0?-1:0;}
 bool argless(const Point&a,const Point&b)
 {
 	int at=argtype(a),bt=argtype(b);
