@@ -8,7 +8,6 @@ int main()
 	binarytrie<30>P;
 	set<int>S;
 	int Q;cin>>Q;
-	int XOR=(1<<30)-1;
 	for(;Q--;)
 	{
 		int t,x;cin>>t>>x;
@@ -30,7 +29,8 @@ int main()
 		}
 		else
 		{
-			cout<<P.max(x^XOR)^XOR<<endl;
+			int XOR=(1<<30)-1;
+			cout<<(P.max(x^XOR)^XOR)<<endl;
 		}
 	}
 }
