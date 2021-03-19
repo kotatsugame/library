@@ -1,0 +1,1 @@
+#include"../datastructure/binarytrie.cpp"
