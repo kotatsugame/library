@@ -1,0 +1,1 @@
+#include"../tool/FastIO.cpp"
