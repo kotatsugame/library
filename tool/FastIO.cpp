@@ -65,6 +65,7 @@ struct writer_struct{
 void flush()
 {
 	fwrite(writer.buf,sizeof(char),writer.l,stdout);
+	fflush(stdout);
 	writer.l=0;
 }
 void wt(char c)
