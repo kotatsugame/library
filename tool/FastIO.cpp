@@ -19,7 +19,7 @@ unsigned int rd_uint()
 {
 	int c;
 	unsigned int x=0;
-	while(isdigit(c=rd_char()))x=x*10+c-'0';
+	while('0'<=(c=rd_char()))x=x*10+c-'0';
 	return x;
 }
 int rd_int()
@@ -29,14 +29,14 @@ int rd_int()
 	long long x=0;
 	if(c=='-')neg=true;
 	else x=c-'0';
-	while(isdigit(c=rd_char()))x=x*10+c-'0';
+	while('0'<=(c=rd_char()))x=x*10+c-'0';
 	return neg?-x:x;
 }
 unsigned long long rd_ull()
 {
 	int c;
 	unsigned long long x=0;
-	while(isdigit(c=rd_char()))x=x*10+c-'0';
+	while('0'<=(c=rd_char()))x=x*10+c-'0';
 	return x;
 }
 long long rd_ll()
@@ -46,14 +46,14 @@ long long rd_ll()
 	long long x=0;
 	if(c=='-')neg=true;
 	else x=c-'0';
-	while(isdigit(c=rd_char()))x=x*10+c-'0';
+	while('0'<=(c=rd_char()))x=x*10+c-'0';
 	return neg?-x:x;
 }
 string rd_str()
 {
 	string ret;
 	int c;
-	while(!isspace(c=rd_char())&&c!=EOF)ret+=c;
+	while((c=rd_char())!='\n'&&c!=' '&&c!=EOF)ret+=c;
 	return ret;
 }
 //output
@@ -82,13 +82,13 @@ void wt(unsigned int x)
 	else
 	{
 		char f[10];
-		int sz=10;
+		int sz=0;
 		while(x)
 		{
-			f[--sz]=x%10+'0';
+			f[sz++]=x%10+'0';
 			x/=10;
 		}
-		while(sz<10)wt(f[sz++]);
+		while(sz)wt(f[--sz]);
 	}
 }
 void wt(int x)
@@ -102,13 +102,13 @@ void wt(unsigned long long x)
 	else
 	{
 		char f[20];
-		int sz=20;
+		int sz=0;
 		while(x)
 		{
-			f[--sz]=x%10+'0';
+			f[sz++]=x%10+'0';
 			x/=10;
 		}
-		while(sz<20)wt(f[sz++]);
+		while(sz)wt(f[--sz]);
 	}
 }
 void wt(long long x)
