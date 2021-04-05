@@ -100,7 +100,7 @@ Real area(const Polygon&);
 Real area(const Polygon&,const Line&);
 Real area(const Polygon&,const Circle&);
 Real area(const Circle&);
-Real area(const Circle&,const Ciecle&);
+Real area(const Circle&,const Circle&);
 //function list end
 Point vec(const Line&s){return s.p2-s.p1;}
 Real norm(const Point&p){return p.x*p.x+p.y*p.y;}
