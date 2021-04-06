@@ -3,4 +3,5 @@ math/FFT.cpp
 math/point.cpp
 math/integer_point.cpp
 graph/diameter.cpp
+graph/euler_tour_vertex.cpp
 datastructure/trie.cpp
