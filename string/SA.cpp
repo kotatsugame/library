@@ -1,3 +1,4 @@
+#pragma once
 //construct SA by SA-IS O(N)
 #include<string>
 #include<vector>
