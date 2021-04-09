@@ -16,6 +16,6 @@ int main()
 		cin>>M;
 		vector<mint>now(6);
 		for(int i=0;i<6;i++)now[i]=dp[i*500+M%500];
-		cout<<lagrange_interpolation(now,mint(M/500))<<endl;
+		cout<<lagrange_interpolation(now,M/500)<<endl;
 	}
 }
