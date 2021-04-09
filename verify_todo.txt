@@ -2,7 +2,6 @@ string/manacher.cpp
 math/FFT.cpp
 math/point.cpp
 math/integer_point.cpp
-math/lagrange_interpolation.cpp
 graph/diameter.cpp
 graph/euler_tour_vertex.cpp
 datastructure/trie.cpp
