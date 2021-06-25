@@ -13,9 +13,9 @@ int main()
 	for(int i=0;i<N;i++)cin>>A[i][M];
 	int rank=A.elimination();
 	{
-		bool ex=true;
-		for(int j=0;j<M;j++)if(A[rank-1][j]!=0)ex=false;
-		if(ex)rank--;
+		bool ex=false;
+		for(int j=0;j<M;j++)if(A[rank-1][j]!=0)ex=true;
+		if(!ex)rank--;
 	}
 	for(int i=rank;i<N;i++)if(A[i][M]!=0)
 	{
@@ -35,7 +35,7 @@ int main()
 	cout<<M-rank<<endl;
 	for(int i=0;i<M;i++)
 	{
-		cout<<(num[i]>=0?A[i][M]:0)<<(i+1==M?"\n":" ");
+		cout<<(num[i]>=0?A[num[i]][M]:0)<<(i+1==M?"\n":" ");
 	}
 	for(int j=0;j<M;j++)if(num[j]<0)
 	{
