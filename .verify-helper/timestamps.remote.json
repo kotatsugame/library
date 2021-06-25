@@ -30,6 +30,7 @@
 "test/lcp.test.cpp": "2021-04-10 04:00:01 +0900",
 "test/linear_congruence.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/matrix_det.test.cpp": "2021-06-26 00:28:19 +0900",
+"test/matrix_elimination.test.cpp": "2021-06-26 01:11:15 +0900",
 "test/matrix_mul.test.cpp": "2021-06-26 00:28:19 +0900",
 "test/matrix_pow.test.cpp": "2021-06-26 00:28:19 +0900",
 "test/matrix_rank.test.cpp": "2021-06-26 00:28:19 +0900",
