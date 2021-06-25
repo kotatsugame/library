@@ -17,7 +17,7 @@ struct Matrix{
 	}
 	Matrix operator*(const Matrix&A)const{
 		Matrix res;
-		for(int i=0;i<N;i++)for(int j=0;j<N;j++)for(int k=0;k<N;k++)
+		for(int i=0;i<N;i++)for(int k=0;k<N;k++)for(int j=0;j<N;j++)
 			res[i][j]+=dat[i][k]*A[k][j];
 		return res;
 	}

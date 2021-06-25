@@ -35,7 +35,7 @@ struct Matrix{
 	{
 		assert(M==A.N);
 		Matrix res(N,A.M);
-		for(int i=0;i<N;i++)for(int j=0;j<A.M;j++)for(int k=0;k<M;k++)
+		for(int i=0;i<N;i++)for(int k=0;k<M;k++)for(int j=0;j<A.M;j++)
 			res[i][j]+=dat[i][k]*A[k][j];
 		return res;
 	}
