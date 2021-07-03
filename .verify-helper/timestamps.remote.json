@@ -4,6 +4,7 @@
 "test/DST_RMQ.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/DST_RSQ.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/FastIO.test.cpp": "2021-03-21 06:36:54 +0900",
+"test/LCA.test.cpp": "2021-07-03 21:52:15 +0900",
 "test/MCF_negative.test.cpp": "2021-01-16 05:54:04 +0900",
 "test/MF_Dinic.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/NTT.test.cpp": "2020-10-09 03:28:26 +0900",
