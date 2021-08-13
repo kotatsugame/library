@@ -1,7 +1,7 @@
 #include<vector>
 #include<algorithm>
 int BSGS(long long X,long long Y,const int P0)
-//k s.t. X^k=Y mod P of -1
+//k s.t. X^k=Y mod P or -1
 //0^0=1
 {
 	X%=P0;
