@@ -1,6 +1,6 @@
 {
 "test/BIT.test.cpp": "2020-10-09 03:28:26 +0900",
-"test/BSGS.test.cpp": "2021-01-16 05:48:39 +0900",
+"test/BSGS.test.cpp": "2021-08-13 22:43:00 +0900",
 "test/DST_RMQ.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/DST_RSQ.test.cpp": "2020-10-09 03:28:26 +0900",
 "test/FastIO.test.cpp": "2021-03-21 06:36:54 +0900",
