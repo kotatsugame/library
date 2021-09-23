@@ -35,7 +35,7 @@ struct dualsegtree{
 		{
 			if(k<n-1)
 			{
-				lazy[k]=lazycalcfn(lazy[k],x);
+				lazy[k]=lazyflag[k]?lazycalcfn(lazy[k],x):x;
 				lazyflag[k]=true;
 			}
 			else dat[k-n+1]=updatefn(dat[k-n+1],x);
