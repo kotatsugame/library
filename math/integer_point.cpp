@@ -150,7 +150,7 @@ Int distance2(const Point&a,const Point&b){return norm(a-b);}
 Rational distance2(const Line&s,const Point&p){
 	Int A=(s.p2.y-s.p1.y)*p.x+(s.p1.x-s.p2.x)*p.y-s.p1.x*s.p2.y+s.p1.y*s.p2.x;
 	Int B=norm(s);
-	return Rational(A,B);
+	return Rational(A*A,B);
 }
 Rational distance2(const Line&s,const Line&t){
 	return intersect(s,t)?Rational(0):distance2(s,t.p1);
