@@ -4,6 +4,7 @@ struct Matrix{
 	array<array<T,N>,N>dat;
 	array<T,N>&operator[](int i){return dat[i];}
 	const array<T,N>&operator[](int i)const{return dat[i];}
+	Matrix(){for(int i=0;i<N;i++)dat[i].fill(T(0));}
 	static Matrix eye(){
 		Matrix res;
 		for(int i=0;i<N;i++)res[i][i]=1;
