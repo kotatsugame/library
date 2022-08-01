@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/sort_points_by_argument"
 using namespace std;
 #include"integer_point.hpp"
-main()
+int main()
 {
 	int N;
 	cin>>N;
