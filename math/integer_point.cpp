@@ -102,8 +102,9 @@ Int dot(const Point&a,const Point&b){return a.x*b.x+a.y*b.y;}
 Int cross(const Point&a,const Point&b){return a.x*b.y-a.y*b.x;}
 int ccw(const Point&a,const Point&b)
 {
-	return cross(a,b)>0?COUNTER_CLOCKWISE
-		:cross(a,b)<0?CLOCKWISE
+	Int crs=cross(a,b);
+	return crs>0?COUNTER_CLOCKWISE
+		:crs<0?CLOCKWISE
 		:dot(a,b)<0?ONLINE_BACK
 		:norm(a)<norm(b)?ONLINE_FRONT
 		:ON_SEGMENT;

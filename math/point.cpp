@@ -131,8 +131,9 @@ Point rotate(const Point&p,const Real theta){
 }
 int ccw(const Point&a,const Point&b)
 {
-	return cross(a,b)>EPS?COUNTER_CLOCKWISE
-		:cross(a,b)<-EPS?CLOCKWISE
+	Real crs=cross(a,b);
+	return crs>EPS?COUNTER_CLOCKWISE
+		:crs<-EPS?CLOCKWISE
 		:dot(a,b)<0?ONLINE_BACK
 		:norm(a)<norm(b)?ONLINE_FRONT
 		:ON_SEGMENT;
