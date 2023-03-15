@@ -35,7 +35,7 @@ struct bimatch{
 		{
 			flag=false;
 			fill(used.begin(),used.end(),false);
-			for(int v=0;v<n;v++)if(match[v]<0&&dfs(v))ans++,flag=true;
+			for(int v=0;v<n;v++)if(!used[v]&&match[v]<0&&dfs(v))ans++,flag=true;
 		}
 		return ans;
 	}
