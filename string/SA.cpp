@@ -7,6 +7,7 @@ struct SA{
 	vector<int>sa;
 	SA(const string&s_):s(s_)
 	{
+		//forall i, 1 <= s[i] < maxval
 		sa=build(vector<int>(s.begin(),s.end()),256);
 	}
 	vector<int>induced_sort(const vector<int>&S,const vector<int>&id,const vector<bool>&SL,vector<int>last)
