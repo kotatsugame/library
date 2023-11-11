@@ -5,3 +5,4 @@ math/integer_point.cpp
 graph/diameter.cpp
 graph/euler_tour_vertex.cpp
 datastructure/trie.cpp
+datastructure/BIT_2D.cpp
